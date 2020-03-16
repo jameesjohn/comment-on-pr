@@ -1,0 +1,7 @@
+name: Ensure Title Contains No WIP
+
+description: "Ensures that no pull request contains WIP in the title"
+
+runs:
+  using: "node12"
+  main: "main.js"
