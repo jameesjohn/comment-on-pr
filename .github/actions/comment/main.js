@@ -7,11 +7,12 @@ async function run() {
     const token = core.getInput('repo-token');
     const octokit = new GitHub(token);
 
-    await octokit.pulls.createComment({
+    const comment = await octokit.pulls.createComment({
       repo: context.repo.repo,
       owner: context.repo.owner,
       body: 'This is my comment ooo'
-    })
+    });
+    console.log(comment.data.body)
   } catch(error) {
     core.setFailed(error.message);
   }
