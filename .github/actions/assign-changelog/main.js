@@ -40,6 +40,7 @@ async function run() {
         body: 'Assigning to @'+username+ ' for first pass review.',
         issue_number: context.payload.pull_request.number
       });
+      // Adding a comment to test assigning based on changelog.
     } else {
       await octokit.issues.createComment({
         repo: context.repo.repo,
