@@ -10,9 +10,10 @@ async function run() {
     const comment = await octokit.pulls.createComment({
       repo: context.repo.repo,
       owner: context.repo.owner,
-      body: 'This is my comment ooo'
+      body: 'This is my comment ooo',
+      pull_number: context.payload.pull_request.number,
     });
-    console.log(comment.data.body)
+    core.infoconsole.log(comment.data.body)
   } catch(error) {
     core.setFailed(error.message);
   }
