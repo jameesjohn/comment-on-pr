@@ -1,0 +1,7 @@
+name: Assigns PR to reviewer
+
+description: Assigns PR to a reviewer based on the changelog
+
+runs:
+  using: "node12"
+  main: "main.js"

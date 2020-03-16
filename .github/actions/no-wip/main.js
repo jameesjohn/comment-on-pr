@@ -18,7 +18,7 @@ async function run() {
         body: 'WIP PRs are not allowed. Please modify the PR title or create a draft PR.',
         issue_number: context.payload.pull_request.number
       });
-
+      // Test WIP
       core.setFailed('PR title contains WIP');
     }
   } catch (error) {
