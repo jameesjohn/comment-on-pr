@@ -1,0 +1,7 @@
+name: comment on pr
+
+description: "Comment on PRs when labelled or synchronized"
+
+runs:
+  using: "node12"
+  main: "main.js"
