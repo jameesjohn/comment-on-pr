@@ -19,6 +19,7 @@ async function run() {
         issue_number: context.payload.pull_request.number
       });
 
+    // testing a WIP PR
       core.setFailed('PR title contains WIP');
     }
   } catch (error) {
