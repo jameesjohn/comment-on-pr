@@ -13,7 +13,7 @@ async function run() {
       body: 'This is my comment ooo',
       issue_number: context.payload.pull_request.number
     });
-    core.infoconsole.log(comment.data.body)
+    core.info(comment.data.body)
   } catch(error) {
     core.setFailed(error.message);
   }
