@@ -12,6 +12,7 @@ async function run() {
       owner: context.repo.owner,
       body: 'This is my comment ooo',
       commit_id: context.sha,
+      pull_number: context.payload.pull_request.number
     });
     core.infoconsole.log(comment.data.body)
   } catch(error) {
