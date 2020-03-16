@@ -26,7 +26,8 @@ async function run() {
       return;
     } else if(changelogLabel.length === 1) {
       let index = changelogLabel[0].name.indexOf('@');
-      let username = changelogLabel[0].name.substring(index);
+      let username = changelogLabel[0].name.substring(index+1);
+      core.info('User to be assigned: '+ username)
       await octokit.issues.addAssignees({
         repo: context.repo.repo,
         owner: context.repo.owner,
