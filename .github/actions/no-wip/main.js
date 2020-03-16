@@ -18,6 +18,8 @@ async function run() {
         body: 'WIP PRs are not allowed. Please modify the PR title or create a draft PR.',
         issue_number: context.payload.pull_request.number
       });
+
+      core.setFailed('PR title contains WIP');
     }
   } catch (error) {
     core.setFailed(error.message);
