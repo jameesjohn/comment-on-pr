@@ -6,7 +6,7 @@ async function run() {
   try {
     const token = core.getInput('repo-token');
     const octokit = new GitHub(token);
-
+    // context.payload.sender.
     const comment = await octokit.issues.createComment({
       repo: context.repo.repo,
       owner: context.repo.owner,

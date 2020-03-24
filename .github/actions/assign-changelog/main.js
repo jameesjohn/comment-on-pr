@@ -4,8 +4,15 @@ const {GitHub, context} = require('@actions/github');
 
 async function run() {
   try {
+    // context.eventName
     const token = core.getInput('repo-token');
+    core.info("App Token " + token);
+    const myObj = {
+      payload: context.payload
+    }
+    core.info('Payload '+ myObj);
     const octokit = new GitHub(token);
+
     const {data: PR} = await octokit.pulls.get({
       owner: context.repo.owner,
       repo: context.repo.repo,
