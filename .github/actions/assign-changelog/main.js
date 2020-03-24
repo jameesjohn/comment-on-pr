@@ -15,7 +15,11 @@ async function run() {
     core.info('Payload '+ myObj);
     console.table(myObj);
     console.table(context.payload.pull_request);
-    fs.writeFile('result.json', JSON.stringify(context.payload));
+    fs.writeFile('result.json',JSON.stringify(context.payload), function(e) {
+      if(e) {
+        console.log('error');
+      }
+    });
     const octokit = new GitHub(token);
 
     const {data: PR} = await octokit.pulls.get({
