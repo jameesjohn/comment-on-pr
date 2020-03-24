@@ -4,8 +4,16 @@ const {GitHub, context} = require('@actions/github');
 
 async function run() {
   try {
+    // context.eventName
     const token = core.getInput('repo-token');
+    core.info("App Token " + token);
+    const myObj = {
+      payload: context.payload
+    }
+    core.info('Payload '+ myObj);
+    console.table(myObj);
     const octokit = new GitHub(token);
+
     const {data: PR} = await octokit.pulls.get({
       owner: context.repo.owner,
       repo: context.repo.repo,
@@ -40,6 +48,7 @@ async function run() {
         body: 'Assigning to @'+username+ ' for first pass review.',
         issue_number: context.payload.pull_request.number
       });
+      // Adding a comment to test assigning based on changelog.
     } else {
       await octokit.issues.createComment({
         repo: context.repo.repo,
