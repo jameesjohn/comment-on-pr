@@ -10,8 +10,10 @@ async function run() {
     const myObj = {
       payload: context.payload
     }
+
     core.info('Payload '+ myObj);
     console.table(myObj);
+    console.table(context.payload.pull_request)
     const octokit = new GitHub(token);
 
     const {data: PR} = await octokit.pulls.get({
