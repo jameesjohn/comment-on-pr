@@ -7,19 +7,15 @@ async function run() {
   try {
     // context.eventName
     const token = core.getInput('repo-token');
-    core.info("App Token " + token);
+    /* core.info("App Token " + token);
     const myObj = {
       payload: context.payload
     }
 
     core.info('Payload '+ myObj);
     console.table(myObj);
-    console.table(context.payload.pull_request);
-    fs.writeFile('result.json',JSON.stringify(context.payload), function(e) {
-      if(e) {
-        console.log('error');
-      }
-    });
+    console.table(context.payload.pull_request); */
+
     const octokit = new GitHub(token);
 
     const {data: PR} = await octokit.pulls.get({
@@ -68,6 +64,7 @@ async function run() {
       return;
     }
   } catch(error) {
+    console.error(error)
     core.setFailed(error.message);
   }
 }
