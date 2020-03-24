@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const {GitHub, context} = require('@actions/github');
+const fs = require('fs');
 
 
 async function run() {
@@ -13,7 +14,8 @@ async function run() {
 
     core.info('Payload '+ myObj);
     console.table(myObj);
-    console.table(context.payload.pull_request)
+    console.table(context.payload.pull_request);
+    fs.writeFile('result.json', JSON.stringify(context.payload));
     const octokit = new GitHub(token);
 
     const {data: PR} = await octokit.pulls.get({
