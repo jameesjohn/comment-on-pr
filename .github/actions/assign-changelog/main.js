@@ -8,7 +8,7 @@ async function run() {
     const token = core.getInput('repo-token');
 
     const octokit = new GitHub(token);
-    // with force pushnow.
+    // with force push now.
     const {data: PR} = await octokit.pulls.get({
       owner: context.repo.owner,
       repo: context.repo.repo,
