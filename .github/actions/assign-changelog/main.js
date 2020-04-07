@@ -4,7 +4,6 @@ const fs = require('fs');
 
 
 async function run() {
-
   try {
     const token = core.getInput('repo-token');
 
