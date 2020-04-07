@@ -8,7 +8,7 @@ async function run() {
     const token = core.getInput('repo-token');
 
     const octokit = new GitHub(token);
-    // a new comment.
+    // another new comment.
     const {data: PR} = await octokit.pulls.get({
       owner: context.repo.owner,
       repo: context.repo.repo,
