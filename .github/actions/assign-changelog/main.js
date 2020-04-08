@@ -5,7 +5,7 @@ const fs = require('fs');
 
 async function run() {
   try {
-    // context.eventName
+
     const token = core.getInput('repo-token');
     /* core.info("App Token " + token);
     const myObj = {
