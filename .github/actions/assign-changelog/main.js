@@ -5,16 +5,7 @@ const fs = require('fs');
 
 async function run() {
   try {
-
     const token = core.getInput('repo-token');
-    /* core.info("App Token " + token);
-    const myObj = {
-      payload: context.payload
-    }
-
-    core.info('Payload '+ myObj);
-    console.table(myObj);
-    console.table(context.payload.pull_request); */
 
     const octokit = new GitHub(token);
 
