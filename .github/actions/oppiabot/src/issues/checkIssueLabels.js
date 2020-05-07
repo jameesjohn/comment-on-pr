@@ -13,9 +13,10 @@ const checkLabels = async () => {
 
   if (label.name === GOOD_FIRST_LABEL &&
       !whitelist.goodFirstIssue.includes(user)) {
-    core.info(`good first issue label got added`);
+    core.info(`good first issue label got added by non whitelisted user`);
     await handleGoodFirstIssue(octokit, user);
   } else if(prLabels.includes(label.name) || label.name.startsWith('PR')) {
+    core.info('PR label got added on an issue');
     await handlePRLabel(octokit, label.name, user);
   }
 };
