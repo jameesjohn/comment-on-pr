@@ -5,6 +5,7 @@ const GOOD_FIRST_LABEL = 'good first issue';
 const prLabels = ['dependencies', 'critical', 'stale'];
 
 const checkLabels = async () => {
+  core.info(`Checking newly added label`);
   const token = core.getInput('repo-token');
   const label = context.payload.label;
   const octokit = new GitHub(token);
@@ -12,6 +13,7 @@ const checkLabels = async () => {
 
   if (label.name === GOOD_FIRST_LABEL &&
       !whitelist.goodFirstIssue.includes(user)) {
+    core.info(`good first issue label got added`);
     await handleGoodFirstIssue(octokit, user);
   } else if(prLabels.includes(label.name) || label.name.startsWith('PR')) {
     await handlePRLabel(octokit, label.name, user);
@@ -38,6 +40,7 @@ const handleGoodFirstIssue = async (octokit, user) => {
     }
   );
   // Remove the label.
+  core.info(`Removing the label`);
   await octokit.issues.removeLabel({
     issue_number:issueNumber,
     name: GOOD_FIRST_LABEL,
