@@ -1,3 +1,4 @@
+const core = require('@actions/core');
 const issueLabelsModule = require('./issues/checkIssueLabels');
 
 const EVENTS = {
