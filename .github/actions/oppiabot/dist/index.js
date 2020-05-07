@@ -2044,6 +2044,7 @@ module.exports = {"_from":"@octokit/rest@^16.43.1","_id":"@octokit/rest@16.43.1"
 /***/ 258:
 /***/ (function(module, __unusedexports, __webpack_require__) {
 
+const core = __webpack_require__(470);
 const issueLabelsModule = __webpack_require__(682);
 
 const EVENTS = {
@@ -4197,7 +4198,7 @@ const {context} = __webpack_require__(469);
 const dispatcher = __webpack_require__(258);
 
 core.info(`About to dispatch:${context.eventName} and ${context.action}`);
-dispatcher.dispatch(context.eventName, context.action);
+dispatcher.dispatch(context.eventName, context.payload.action);
 
 
 /***/ }),
