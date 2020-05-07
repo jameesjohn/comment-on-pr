@@ -1,6 +1,10 @@
 name: Oppiabot
 
-on: [issues, issue_comment]
+on:
+  issues:
+    types:
+      - labeled
+
 
 jobs:
   oppiabot:
