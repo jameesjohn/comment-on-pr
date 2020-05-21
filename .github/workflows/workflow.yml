@@ -1,0 +1,12 @@
+name: First workflow for this repo
+
+on: pull_request
+
+jobs:
+  comment-on-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/comment
+        with:
+          repo-token: ${{secrets.GITHUB_TOKEN}}
