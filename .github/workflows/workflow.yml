@@ -1,9 +1,12 @@
-name: First workflow for this repo
+name: Oppiabot
 
-on: pull_request
+on:
+  issues:
+    types:
+      - labeled
 
 jobs:
-  comment-on-pr:
+  oppiabot:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
