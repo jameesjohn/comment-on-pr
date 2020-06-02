@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: JamesOppiabot
-        uses: jameesjohn/oppia-actions@0.1.0
+        uses: jameesjohn/oppia-actions@0.1.1
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
