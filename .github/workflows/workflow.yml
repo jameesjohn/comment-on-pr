@@ -11,6 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: JamesOppiabot
-        uses: jameesjohn/oppia-actions@0.1.1
+        uses: jameesjohn/oppia-actions@0.1.3
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
+          google-client-credentials: ${{secrets.GOOGLE_CLIENT_CREDENTIALS}}
+          google-auth-credentials: ${{secrets.GOOGLE_AUTH_CREDENTIALS}}
+          cla-sheet-id: ${{secrets.CLA_SHEET_ID}}
