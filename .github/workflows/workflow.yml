@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: JamesOppiabot
-        uses: jameesjohn/oppia-actions@0.2.3
+        uses: jameesjohn/oppia-actions@0.3.0
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
           google-api-key: ${{secrets.GOOGLE_API_KEY}}
